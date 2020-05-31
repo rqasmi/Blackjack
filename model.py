@@ -3,6 +3,8 @@ player and house (dealer) that inherit from the player class. There is also a Ca
 """
 
 class Player:
+  blackjack = 21
+
   def __init__(self, name, hand = []):
     self.name = name
     self.hand = hand
@@ -18,7 +20,7 @@ class Player:
       self.score += card.score_val
       if card.str_val == "A":
         aceCounter += 1
-      if self.score > 21 and aceCounter != 0:
+      if self.score > blackjack and aceCounter != 0:
         self.score -= 10
         aceCounter -= 1
 
@@ -31,10 +33,10 @@ class Player:
     self.setScore()
 
   def hasBlackjack(self):
-    return self.score == 21 and len(self.hand) == 2
+    return self.score == blackjack and len(self.hand) == 2
 
   def bust(self):
-    return self.score > 21
+    return self.score > blackjack
 
 
 class House(Player):

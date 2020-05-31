@@ -7,7 +7,7 @@ This program implements a simple 1-player interactive blackjack game who plays a
 The player is dealt two cards, face up. The house is dealt two cards, one up (exposed) and one down (hidden). 
 The value of cards two through ten is their pip value (2 through 10). Face cards (Jack, Queen, and King) are all worth ten. 
 Aces can be worth one or eleven. A hand's value is the sum of the card values. Players are allowed to draw additional 
-cards to improve their hands. A hand with an ace valued as 11 is called "soft", meaning that the hand will not bust 
+cards ('hit') to improve their hands. A hand with an ace valued as 11 is called "soft", meaning that the hand will not bust 
 by taking an additional card. The value of the ace will become one to prevent the hand from exceeding 21. 
 Otherwise, the hand is called "hard".
 
@@ -102,7 +102,7 @@ def play(player, house, deck):
     elif action.upper() == 'N':
       break
     else:
-      print("Please enter 'y' or 'n'")
+      print("Please enter 'y' or 'n'.")
     
   while(house.score < 17):
     house.hit(deck.pop())
