@@ -30,6 +30,7 @@ from random import shuffle
 from model import Card, Player, RegularPlayer, House
 
 blackjack = 21
+house_limit= 17
 
 def createDeck():
   """ Create and return shuffled deck as array of cards."""
@@ -109,7 +110,7 @@ def play(player, house, deck):
     else:
       print("Please enter 'y' or 'n'.")
     
-  while(house.score < 17):
+  while(house.score < house_limit):
     house.hit(deck.pop())
 
   gameTeardown(house, player)
