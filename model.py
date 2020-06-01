@@ -2,9 +2,9 @@
 player and house (dealer) that inherit from the player class. There is also a Card class that models a card in the game.
 """
 
-class Player:
-  blackjack = 21
+blackjack = 21
 
+class Player:
   def __init__(self, name, hand = []):
     self.name = name
     self.hand = hand

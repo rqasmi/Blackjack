@@ -51,23 +51,28 @@ def gameTeardown(house, player):
   print(player, end="\n\n")
 
 
-def play(player, house, deck):
-  """ Play function logic for one round."""
+def getBet(player):
+  "Reads in and returns bet amount of input player."
   get_bet = False
-  while(get_bet != True):
+  while(not get_bet):
+    bet = input("Please enter your bet amount:\n>")
     try:
-      bet = float(input("Please enter your bet amount: "))
-      if bet < 0:
+      if float(bet) < 0:
         print("Your bet should be greater than 0\n")
         continue
-      elif bet > player.money:
+      elif float(bet) > player.money:
         print("Your don't have enough money to bet an amount of $", bet, "\n")
         continue
     except ValueError:
       print("Bet amount must be a numerical value.\n")
       continue
     get_bet = True
-  
+
+  return float(bet)
+
+def play(player, house, deck):
+  """ Play function logic for one round."""
+  bet = getBet(player)
   print("You bet an amount of", bet, "\n")
   player.betMoney(bet)
   print(house)
